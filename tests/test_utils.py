@@ -1,5 +1,3 @@
-import argparse
-import pytest
 from pathlib import Path
 from snakeres import utils
 
