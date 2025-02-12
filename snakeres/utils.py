@@ -48,7 +48,7 @@ def init_logger(args: argparse.Namespace) -> None:
                         level=logging.INFO,
                         handlers=[logging.StreamHandler()])
 
-    # logging.info(f"snakeres {version('snakeres')}")
+    logging.info(f"snakeres {version('snakeres')}")
     logging.info('')
     logging.info('Arguments:')
     for a, aval in args.__dict__.items():
