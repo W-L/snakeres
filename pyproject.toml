@@ -1,0 +1,51 @@
+[build-system]
+requires = ["hatchling>1.26.1"]
+build-backend = "hatchling.build"
+
+
+[tool.hatch.version]
+path = "snakeres/__init__.py"
+
+
+[project]
+name = "snakeres"
+description = "Extract the resource specifications from a snakemake workflow and create a workflow profile"
+dynamic = ["version"]
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "pyyaml",
+]
+
+
+[project.urls]
+homepage = "https://github.com/W-L/snakeres"
+
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "pytest-cov",
+]
+
+
+[project.scripts]
+snakeres = "snakeres.snakeres:main"
+
+
+[tool.hatch.build.targets.sdist]
+include = ["/snakeres",]
+exclude = ["/tests", "/.git"]
+
+
+[tool.hatch.build.targets.wheel]
+packages = ["snakeres"]
+
+
+[tool.pytest.ini_options]
+log_cli = true
+log_cli_level = "INFO"
+log_cli_format = "%(asctime)s [%(levelname)8s] %(message)s (%(filename)s:%(lineno)s)"
+log_cli_date_format = "%Y-%m-%d %H:%M:%S"
+
+
