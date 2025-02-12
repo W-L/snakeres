@@ -7,7 +7,7 @@ from snakeres import parsing
 
 @pytest.fixture(scope="module")
 def snakefile():
-    return '''
+    smk = '''
 rule all:
     input:
         expand('results/{sample}_counts.txt', sample=['SRR17913199_01', 'SRR17913199_02', 'SRR17913199_03'])
@@ -57,6 +57,7 @@ rule test_rule_named:
     shell:
         'grep "^@" {input} | wc -l > {output}'    
     '''
+    return smk
 
 
 
